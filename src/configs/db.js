@@ -1,9 +1,9 @@
 require('dotenv').config()
 
 const development = {
-  username: process.env.MYSQL_USER || 'dbuser',
-  password: process.env.MYSQL_PASSWORD || 'dbpassword',
-  database: process.env.MYSQL_DATABASE || 'tc-db',
+  username: process.env.MYSQL_USER || 'root',
+  password: process.env.MYSQL_PASSWORD || 'root',
+  database: process.env.MYSQL_DATABASE || 'db',
   host: process.env.MYSQL_HOST || '127.0.0.1',
   dialect: 'mysql',
   logging: true

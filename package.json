@@ -23,8 +23,11 @@
     "@fastify/cors": "^8.2.0",
     "@fastify/jwt": "^6.5.0",
     "@fastify/swagger": "^8.2.1",
+    "argon2": "^0.30.2",
     "dotenv": "^16.0.3",
     "fastify": "^4.10.2",
+    "mysql2": "^2.3.3",
+    "pino": "^8.7.0",
     "sequelize": "^6.26.0",
     "sequelize-cli": "^6.5.2"
   },

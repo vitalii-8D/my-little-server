@@ -1,5 +1,7 @@
 const controller = (req, res) => {
-  res.send({ status: 'OK' })
+  const payload = req.user || {}
+
+  res.send({ status: 'OK', payload })
 }
 
 module.exports = controller

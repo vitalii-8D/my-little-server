@@ -8,7 +8,8 @@ const schema = {
     200: {
       type: 'object',
       properties: {
-        status: { type: 'string', example: 'OK' }
+        status: { type: 'string', example: 'OK' },
+        payload: { type: 'object' }
       },
       required: ['status']
     }
