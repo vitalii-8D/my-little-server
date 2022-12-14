@@ -22,12 +22,15 @@ module.exports = app => {
   app.addHook('onRequest', async (req, res) => {
     req.fastify = app
 
+    if (isPublicRequest(req)) {
+      // if  (Object.values(req.cookie).length) req.jwtVerify()
+        return
+    }
+
     let payload
     try {
       payload = req.jwtVerify()
     } catch (err) {
-      if (isPublicRequest(req)) return
-
       return res.status(statusCodes.UNAUTHORIZED).send({ error: 'Unauthorized!' })
     }
 

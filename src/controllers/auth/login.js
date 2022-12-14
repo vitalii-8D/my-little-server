@@ -2,6 +2,7 @@ const argon2 = require('argon2')
 
 const { User } = require('../../db/models')
 const { statusCodes } = require('../../const')
+const { setAuthCookie } = require('../../services/auth/helpers')
 
 const controller = async (req, res) => {
   const { email } = req.body
@@ -18,6 +19,7 @@ const controller = async (req, res) => {
     role
   })
 
+  setAuthCookie(res, token)
   res.send({ status: 'OK', token })
 }
 
