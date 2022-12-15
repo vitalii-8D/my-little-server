@@ -10,7 +10,7 @@ const schema = {
       email: { type: 'string' },
       password: { type: 'string' }
     },
-    required: ['email', 'password', 'firstName', 'lastName']
+    required: ['email', 'password']
   },
   responses: {
     ...defaultErrors,

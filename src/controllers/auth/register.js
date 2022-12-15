@@ -6,8 +6,13 @@ const { setAuthCookie } = require('../../services/auth/helpers')
 
 const controller = async (req, res) => {
   const { email, password } = req.body
-  const user = await User.findOne({ where: { email } })
 
+  let user
+  try {
+    user = await User.findOne({ where: { email } })
+  } catch (e) {
+    return res.status(500).send({ error: e.message })
+  }
   if (user) return res.status(statusCodes.CLIENT_ERROR).send({ error: 'User already exists!' })
 
   const hash = await argon2.hash(password)

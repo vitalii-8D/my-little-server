@@ -1,35 +1,25 @@
 const fJWT = require('@fastify/jwt')
 const fCookie = require('@fastify/cookie')
-const { isPublicRequest, hasPermission } = require('./helpers')
+const { isPublicRequest, hasPermission, AUTH_JWT_OPTION } = require('./helpers')
 const { statusCodes } = require('../../const')
 
-const AUTH_COOKIE_NAME = 'jwt'
-
 module.exports = app => {
-  app.register(fJWT, {
-    secret: process.env.JWT_SIGN_SECRET || 'secret',
-    cookie: {
-      cookieName: AUTH_COOKIE_NAME,
-      sign: false
-    },
-    verify: {
-      maxAge: process.env.MAX_AUTH_TOKEN_AGE || '12h'
-    }
-  })
-
+  app.register(fJWT, AUTH_JWT_OPTION)
   app.register(fCookie)
 
   app.addHook('onRequest', async (req, res) => {
-    req.fastify = app
+    // if (!req.cookie) req.cookie = {}
+    // if (!req.cookie.jwt) req.cookie.jwt = ''
+    // req.fastify = app
 
     if (isPublicRequest(req)) {
-      // if  (Object.values(req.cookie).length) req.jwtVerify()
-        return
+      if (req.cookie?.jwt) await req.jwtVerify()
+      return
     }
 
     let payload
     try {
-      payload = req.jwtVerify()
+      payload = await req.jwtVerify()
     } catch (err) {
       return res.status(statusCodes.UNAUTHORIZED).send({ error: 'Unauthorized!' })
     }

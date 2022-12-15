@@ -19,6 +19,16 @@ const AUTH_COOKIE_OPTIONS = {
   httpOnly: true,
   sameSite: true
 }
+const AUTH_JWT_OPTION = {
+  secret: process.env.JWT_SIGN_SECRET || 'secret',
+  cookie: {
+    cookieName: AUTH_COOKIE_NAME,
+    sign: false
+  },
+  verify: {
+    maxAge: process.env.MAX_AUTH_TOKEN_AGE || '1m'
+  }
+}
 
 const setAuthCookie = (res, token) => {
   res.setCookie(AUTH_COOKIE_NAME, token, AUTH_COOKIE_OPTIONS)
@@ -27,5 +37,7 @@ const setAuthCookie = (res, token) => {
 module.exports = {
   isPublicRequest,
   hasPermission,
-  setAuthCookie
+  setAuthCookie,
+  AUTH_COOKIE_NAME,
+  AUTH_JWT_OPTION
 }
