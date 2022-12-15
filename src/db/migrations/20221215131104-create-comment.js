@@ -5,15 +5,14 @@ module.exports = {
     await queryInterface.createTable('comments', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID
       },
       text: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       postId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         references: {
           model: 'posts',
           key: 'id'
