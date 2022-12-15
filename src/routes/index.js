@@ -11,18 +11,27 @@ const routes = [
     schema: schemas.healthCheck,
     handler: controllers.healthCheck
   },
+
   // AUTH
-  {
-    method: methods.POST,
-    url: urls.REGISTER,
-    schema: schemas.auth.register,
-    handler: controllers.auth.register
-  },
   {
     method: methods.POST,
     url: urls.LOGIN,
     schema: schemas.auth.login,
     handler: controllers.auth.login
+  },
+
+  // USER
+  {
+    method: methods.POST,
+    url: urls.USERS,
+    schema: schemas.users.create,
+    handler: controllers.users.create
+  },
+  {
+    method: methods.PATCH,
+    url: urls.USER,
+    schema: schemas.users.update,
+    handler: controllers.users.update
   }
 ]
 

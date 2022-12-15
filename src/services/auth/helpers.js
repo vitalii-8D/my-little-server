@@ -1,13 +1,12 @@
 const permissions = require('./permissions')
-const { ROLE } = require('./payloadFields')
-const { appConfig } = require('../../configs')
+const { payloadFields } = require('../../const')
 
 const isPublicRequest = req => !permissions[req.routerPath]?.[req.method]
 
 const hasPermission = (req, payload) => {
   const validRoles = permissions[req.routerPath]?.[req.method]
 
-  return !(validRoles && !valiRoles.includes(payload[ROLE]))
+  return !(validRoles && !validRoles.includes(payload[payloadFields.ROLE]))
 }
 
 const AUTH_COOKIE_NAME = 'jwt'

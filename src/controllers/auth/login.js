@@ -1,7 +1,7 @@
 const argon2 = require('argon2')
 
 const { User } = require('../../db/models')
-const { statusCodes } = require('../../const')
+const { statusCodes, payloadFields } = require('../../const')
 const { setAuthCookie } = require('../../services/auth/helpers')
 
 const controller = async (req, res) => {
@@ -20,8 +20,8 @@ const controller = async (req, res) => {
 
   const { role, id } = user
   const token = await res.jwtSign({
-    id,
-    role
+    [payloadFields.UID]: id,
+    [payloadFields.ROLE]: role
   })
 
   setAuthCookie(res, token)

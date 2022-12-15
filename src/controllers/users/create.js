@@ -10,26 +10,24 @@ const controller = async (req, res) => {
   let user
   try {
     user = await User.findOne({ where: { email } })
-  } catch (e) {
-    return res.status(500).send({ error: e.message })
+  } catch (err) {
+    return res.status(statusCodes.SERVER_ERROR).send({ error: err.message })
   }
   if (user) return res.status(statusCodes.CLIENT_ERROR).send({ error: 'User already exists!' })
 
   const hash = await argon2.hash(password)
 
-  const createdUser = await User.create({
-    ...req.body,
-    password: hash
-  })
-
-  const { role, id } = createdUser
-  const token = await res.jwtSign({
-    id,
-    role
-  })
+  try {
+    await User.create({
+      ...req.body,
+      password: hash
+    })
+  } catch (err) {
+    return res.status(statusCodes.SERVER_ERROR).send({ err: error.message })
+  }
 
   setAuthCookie(res, token)
-  res.send({ status: 'OK', token })
+  res.status(statusCodes.CREATED).send({ status: 'OK' })
 }
 
 module.exports = controller
