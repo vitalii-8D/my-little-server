@@ -2,24 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('posts', {
+    await queryInterface.createTable('PostTags', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID
       },
-      title: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      text: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      userId: {
+      postId: {
         type: Sequelize.UUID,
         references: {
-          model: 'users',
+          model: 'posts',
+          key: 'id'
+        }
+      },
+      tagId: {
+        type: Sequelize.UUID,
+        references: {
+          model: 'tags',
           key: 'id'
         }
       },
@@ -37,6 +36,6 @@ module.exports = {
     })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('posts')
+    await queryInterface.dropTable('PostTags')
   }
 }

@@ -57,6 +57,7 @@ const routes = [
     schema: schemas.users.updateMe,
     handler: controllers.users.updateMe
   }
+  // POSTS
 ]
 
 const init = async app => routes.map(r => app.route(r))

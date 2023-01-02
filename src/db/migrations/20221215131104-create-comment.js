@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.UUID
       },
       text: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       postId: {
         type: Sequelize.UUID,

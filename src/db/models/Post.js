@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Post.belongsTo(models.User, { foreignKey: 'userId' })
       Post.hasMany(models.Comment, { foreignKey: 'postId' })
+      Post.belongsToMany(models.Tag, { through: 'PostTags' })
     }
   }
   Post.init(
@@ -21,8 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         unique: true
       },
-      title: DataTypes.STRING,
-      text: DataTypes.STRING
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      text: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,
