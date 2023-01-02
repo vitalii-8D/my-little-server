@@ -7,7 +7,10 @@ const routes = {
   // USER
   USERS: '/user',
   USER: '/user/:id',
-  ME: '/me'
+  ME: '/me',
+  // POST
+  POSTS: '/post',
+  POST: '/post/:id'
 }
 
 module.exports = routes

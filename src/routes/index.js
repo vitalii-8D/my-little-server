@@ -56,8 +56,14 @@ const routes = [
     url: urls.ME,
     schema: schemas.users.updateMe,
     handler: controllers.users.updateMe
-  }
+  },
   // POSTS
+  {
+    method: methods.POST,
+    url: urls.POSTS,
+    schema: schemas.posts.create,
+    handler: controllers.posts.create
+  }
 ]
 
 const init = async app => routes.map(r => app.route(r))

@@ -13,7 +13,12 @@ module.exports = app => {
     // req.fastify = app
 
     if (isPublicRequest(req)) {
-      if (req.cookie?.jwt) await req.jwtVerify()
+      // if (req.cookie?.jwt) await req.jwtVerify
+      try {
+        await req.jwtVerify()
+      } catch (err) {
+        return
+      }
       return
     }
 

@@ -3,24 +3,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('PostTags', {
-      id: {
-        allowNull: false,
-        primaryKey: true,
-        type: Sequelize.UUID
-      },
       postId: {
         type: Sequelize.UUID,
         references: {
           model: 'posts',
           key: 'id'
-        }
+        },
+        allowNull: false
       },
       tagId: {
         type: Sequelize.UUID,
         references: {
           model: 'tags',
           key: 'id'
-        }
+        },
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
