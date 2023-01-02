@@ -2,15 +2,8 @@ const { defaultErrors } = require('../common')
 const { statusCodes } = require('../../const')
 
 const schema = {
-  description: 'Update User',
+  description: 'Update Me',
   tags: ['User'],
-  params: {
-    type: 'object',
-    properties: {
-      id: { type: 'string', minLength: 1 }
-    },
-    required: ['id']
-  },
   body: {
     type: 'object',
     properties: {

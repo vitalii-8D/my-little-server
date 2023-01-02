@@ -2,7 +2,7 @@ const { defaultErrors } = require('../common')
 
 const schema = {
   description: 'Check if system works',
-  tags: ['Health check'],
+  tags: ['Health Check'],
   responses: {
     ...defaultErrors,
     200: {

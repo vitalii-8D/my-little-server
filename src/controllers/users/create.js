@@ -7,6 +7,9 @@ const { setAuthCookie } = require('../../services/auth/helpers')
 const controller = async (req, res) => {
   const { email, password } = req.body
 
+  const isEmailValid = email.indexOf('@')
+  if (isEmailValid === -1) return res.status(statusCodes.CLIENT_ERROR).send({ error: 'Email is not valid' })
+
   let user
   try {
     user = await User.findOne({ where: { email } })
@@ -26,7 +29,7 @@ const controller = async (req, res) => {
     return res.status(statusCodes.SERVER_ERROR).send({ err: error.message })
   }
 
-  setAuthCookie(res, token)
+  // setAuthCookie(res, token)
   res.status(statusCodes.CREATED).send({ status: 'OK' })
 }
 

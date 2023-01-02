@@ -32,6 +32,30 @@ const routes = [
     url: urls.USER,
     schema: schemas.users.update,
     handler: controllers.users.update
+  },
+  {
+    method: methods.GET,
+    url: urls.USER,
+    schema: schemas.users.getOne,
+    handler: controllers.users.getOne
+  },
+  {
+    method: methods.GET,
+    url: urls.ME,
+    schema: schemas.users.getMe,
+    handler: controllers.users.getMe
+  },
+  {
+    method: methods.GET,
+    url: urls.USERS,
+    schema: schemas.users.getMany,
+    handler: controllers.users.getMany
+  },
+  {
+    method: methods.PATCH,
+    url: urls.ME,
+    schema: schemas.users.updateMe,
+    handler: controllers.users.updateMe
   }
 ]
 

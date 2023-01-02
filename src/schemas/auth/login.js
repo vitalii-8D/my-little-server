@@ -3,16 +3,16 @@ const { statusCodes } = require('../../const')
 
 const schema = {
   description: 'Register new User',
-  tags: ['registration'],
+  tags: ['Auth'],
   body: {
     type: 'object',
     properties: {
-      email: { type: 'string' },
-      password: { type: 'string' }
+      email: { type: 'string', default: 'keks@mail.com' },
+      password: { type: 'string', default: 'pass' }
     },
     required: ['email', 'password']
   },
-  responses: {
+  response: {
     ...defaultErrors,
     [statusCodes.OK]: {
       type: 'object',

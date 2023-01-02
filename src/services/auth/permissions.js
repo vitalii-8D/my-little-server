@@ -10,6 +10,10 @@ const permission = {
   [urls.USER]: {
     [methods.GET]: roles.ALL,
     [methods.DELETE]: roles.ADMIN,
+    [methods.PATCH]: roles.ADMIN
+  },
+  [urls.ME]: {
+    [methods.GET]: roles.ALL,
     [methods.PATCH]: roles.ALL
   }
 }

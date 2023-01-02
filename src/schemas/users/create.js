@@ -3,14 +3,14 @@ const { statusCodes } = require('../../const')
 
 const schema = {
   description: 'Create a new User',
-  tags: ['create user'],
+  tags: ['User'],
   body: {
     type: 'object',
     properties: {
-      email: { type: 'string' },
-      password: { type: 'string' },
-      firstName: { type: 'string' },
-      lastName: { type: 'string' }
+      email: { type: 'string', default: 'default.email@gmail.com' },
+      password: { type: 'string', default: 'pass' },
+      firstName: { type: 'string', default: 'First' },
+      lastName: { type: 'string', default: 'Last' }
     },
     required: ['email', 'password', 'firstName', 'lastName']
   },
