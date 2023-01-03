@@ -1,9 +1,9 @@
-const { defaultErrors, user } = require('../common')
+const { defaultErrors, post } = require('../common')
 const { statusCodes } = require('../../const')
 
 const schema = {
-  description: 'Get all Users',
-  tags: ['User'],
+  description: 'Get all Posts',
+  tags: ['Post'],
   response: {
     ...defaultErrors,
     [statusCodes.OK]: {
@@ -14,7 +14,7 @@ const schema = {
           items: {
             type: 'object',
             properties: {
-              ...user.response
+              ...post.response
             },
             additionalProperties: false
           }

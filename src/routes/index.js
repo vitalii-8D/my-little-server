@@ -63,6 +63,12 @@ const routes = [
     url: urls.POSTS,
     schema: schemas.posts.create,
     handler: controllers.posts.create
+  },
+  {
+    method: methods.GET,
+    url: urls.POSTS,
+    schema: schemas.posts.getMany,
+    handler: controllers.posts.getMany
   }
 ]
 

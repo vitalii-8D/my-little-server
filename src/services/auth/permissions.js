@@ -3,18 +3,24 @@ const methods = require('../../routes/methods')
 const urls = require('../../routes/routes')
 
 const permission = {
+  // USERS
   [urls.USERS]: {
-    [methods.GET]: roles.ALL,
-    [methods.POST]: roles.ADMIN
+    [methods.POST]: roles.ADMIN,
+    [methods.GET]: roles.ALL
   },
   [urls.USER]: {
+    [methods.PATCH]: roles.ADMIN,
     [methods.GET]: roles.ALL,
-    [methods.DELETE]: roles.ADMIN,
-    [methods.PATCH]: roles.ADMIN
+    [methods.DELETE]: roles.ADMIN
   },
   [urls.ME]: {
-    [methods.GET]: roles.ALL,
-    [methods.PATCH]: roles.ALL
+    [methods.PATCH]: roles.ALL,
+    [methods.GET]: roles.ALL
+  },
+  // POSTS
+  [urls.POSTS]: {
+    [methods.POST]: roles.ALL,
+    [methods.GET]: roles.ALL
   }
 }
 
