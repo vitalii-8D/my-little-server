@@ -27,6 +27,16 @@ module.exports = {
         role: 'user',
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        id: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc002',
+        firstName: 'Other',
+        lastName: 'Dude',
+        email: 'dude@mail.com',
+        password: pass,
+        role: 'user',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ])
   },

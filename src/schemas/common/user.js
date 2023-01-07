@@ -10,7 +10,12 @@ const response = {
 
 const responseSchema = {
   type: 'object',
-  properties: response,
+  properties: {
+    id: { type: 'string' },
+    firstName: { type: 'string' },
+    lastName: { type: 'string' },
+    email: { type: 'string' }
+  },
   additionalProperties: false
 }
 

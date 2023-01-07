@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Comment.belongsTo(models.Post, { foreignKey: 'postId' })
+      Comment.belongsTo(models.Post, { foreignKey: 'postId', as: 'post' })
+      Comment.belongsTo(models.User, { foreignKey: 'userId', as: 'user' })
     }
   }
   Comment.init(

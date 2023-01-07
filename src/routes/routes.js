@@ -14,7 +14,9 @@ const routes = {
 
   // POST
   POSTS: '/posts',
-  POST: '/post/:id'
+  POST: '/post/:id',
+  // COMMENTS
+  POST_COMMENTS: '/post/:id/comments'
 }
 
 module.exports = routes

@@ -7,6 +7,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd25',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c371',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc001',
         text: 'Some comment ,Some comment ,Some comment ,Some comment ,Some comment Some comment Some comment Some comment Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -14,6 +15,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd26',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c371',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc002',
         text: 'Some comment ,Some comment ,Some comment ,Some comment ,Some comment Some comment Some comment Some comment Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -21,6 +23,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd27',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c371',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc002',
         text: 'Some comment ,Some comment ,Some comment, Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -28,6 +31,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd28',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c373',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc001',
         text: 'Some comment ,Some comment ,Some comment, Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -35,6 +39,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd29',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c373',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc002',
         text: 'Some comment ,Some comment ,Some comment, Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -42,6 +47,7 @@ module.exports = {
       {
         id: '2d5cf22e-984c-4382-9b83-e2cb906ffd20',
         postId: 'd7550a4b-3b2b-4b81-ba03-62f0ad52c372',
+        userId: '11bf5b37-e0b8-42e0-8dcf-dc8c4aefc001',
         text: 'Some comment ,Some comment ,Some comment, Some comment Some comment ',
         createdAt: new Date(),
         updatedAt: new Date()

@@ -89,6 +89,14 @@ const routes = [
     url: urls.POST,
     schema: schemas.posts.update,
     handler: controllers.posts.update
+  },
+
+  // COMMENTS\
+  {
+    method: methods.GET,
+    url: urls.POST_COMMENTS,
+    schema: schemas.comments.ofPost,
+    handler: controllers.comments.ofPost
   }
 ]
 
