@@ -2,23 +2,22 @@ const { Post } = require('../../db/models')
 const { statusCodes } = require('../../const')
 const { getPopulatingFields } = require('../../utils')
 
-const allowedPopulations = ['tags', 'comments', 'user']
+const allowedPopulations = ['comments']
 
 const controller = async (req, res) => {
+  const { id } = req.params
   const populate = getPopulatingFields(req.query.populate, allowedPopulations)
 
-  const query = {}
-  if (populate) query.include = populate
+  const options = {}
+  if (populate) options.include = populate
 
   try {
-    let posts = await Post.findAll(query)
+    let post = await Post.findByPk(id, options)
 
-    res.send({
-      items: posts,
-      count: posts.length
-    })
+    if (!post) return res.status(statusCodes.NOT_FOUND).send({ error: 'User not found' })
+
+    res.send(post)
   } catch (err) {
-    console.error(err)
     return res.status(statusCodes.SERVER_ERROR).send({ error: err.message })
   }
 }

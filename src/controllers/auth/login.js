@@ -12,6 +12,7 @@ const controller = async (req, res) => {
     user = await User.findOne({ where: { email } })
   } catch (err) {
     console.log(err)
+    return res.status(statusCodes.SERVER_ERROR).send({ error: err.message })
   }
   if (!user) return res.status(statusCodes.CLIENT_ERROR).send({ error: 'Wrong email or password!' })
 

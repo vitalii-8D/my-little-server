@@ -22,11 +22,14 @@ const AUTH_JWT_OPTION = {
   secret: process.env.JWT_SIGN_SECRET || 'secret',
   cookie: {
     cookieName: AUTH_COOKIE_NAME,
-    sign: false
+    sign: true
   },
-  verify: {
-    maxAge: process.env.MAX_AUTH_TOKEN_AGE || '1m'
+  sign: {
+    expiresIn: process.env.MAX_AUTH_TOKEN_AGE || '1m'
   }
+  // verify: {
+  //   maxAge: process.env.MAX_AUTH_TOKEN_AGE || '1m'
+  // }
 }
 
 const setAuthCookie = (res, token) => {

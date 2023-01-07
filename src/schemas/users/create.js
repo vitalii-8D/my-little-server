@@ -12,7 +12,8 @@ const schema = {
       firstName: { type: 'string', default: 'First' },
       lastName: { type: 'string', default: 'Last' }
     },
-    required: ['email', 'password', 'firstName', 'lastName']
+    required: ['email', 'password', 'firstName', 'lastName'],
+    additionalProperties: false
   },
   responses: {
     ...defaultErrors,

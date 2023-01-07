@@ -12,7 +12,8 @@ const appConfig = {
       options: {
         colorize: true
       }
-    }
+    },
+    level: 'info'
   }),
   bodyLimit: MAX_BODY_SIZE,
   ajv: {

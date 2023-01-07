@@ -1,13 +1,18 @@
 const { Post } = require('../../db/models')
-const { statusCodes } = require('../../const')
+const { payloadFields, statusCodes } = require('../../const')
 const { getPopulatingFields } = require('../../utils')
 
 const allowedPopulations = ['tags', 'comments', 'user']
 
 const controller = async (req, res) => {
+  const uId = req.user[payloadFields.UID]
   const populate = getPopulatingFields(req.query.populate, allowedPopulations)
 
-  const query = {}
+  const query = {
+    where: {
+      userId: uId
+    }
+  }
   if (populate) query.include = populate
 
   try {
@@ -18,7 +23,6 @@ const controller = async (req, res) => {
       count: posts.length
     })
   } catch (err) {
-    console.error(err)
     return res.status(statusCodes.SERVER_ERROR).send({ error: err.message })
   }
 }

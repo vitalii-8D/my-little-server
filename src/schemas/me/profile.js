@@ -2,8 +2,8 @@ const { defaultErrors, user } = require('../common')
 const { statusCodes } = require('../../const')
 
 const schema = {
-  description: 'Create one User',
-  tags: ['User'],
+  description: 'Get my Profile',
+  tags: ['Me'],
   response: {
     ...defaultErrors,
     [statusCodes.OK]: {

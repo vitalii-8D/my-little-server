@@ -9,7 +9,7 @@ const schema = {
     properties: {
       title: { type: 'string', default: 'My New Post' },
       text: { type: 'string', default: 'My new post content' },
-      tags: { type: 'array', items: { type: 'string', default: '2d5cf22e-984c-4382-9b83-e2cb906ffd38' } }
+      tags: { type: 'array', items: { type: 'string', default: '2d5cf22e-984c-4382-9b83-e2cb906ffd38' }, default: [] }
     },
     required: ['title', 'text']
   },

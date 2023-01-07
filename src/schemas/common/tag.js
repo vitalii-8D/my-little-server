@@ -1,7 +1,6 @@
 const response = {
   id: { type: 'string' },
-  title: { type: 'string' },
-  text: { type: 'string' }
+  name: { type: 'string' }
 }
 
 module.exports = {

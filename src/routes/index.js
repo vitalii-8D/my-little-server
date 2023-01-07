@@ -20,6 +20,20 @@ const routes = [
     handler: controllers.auth.login
   },
 
+  // ME
+  {
+    method: methods.GET,
+    url: urls.ME,
+    schema: schemas.me.profile,
+    handler: controllers.me.profile
+  },
+  {
+    method: methods.GET,
+    url: urls.ME_POSTS,
+    schema: schemas.me.posts,
+    handler: controllers.me.posts
+  },
+
   // USER
   {
     method: methods.POST,
@@ -38,12 +52,6 @@ const routes = [
     url: urls.USER,
     schema: schemas.users.getOne,
     handler: controllers.users.getOne
-  },
-  {
-    method: methods.GET,
-    url: urls.ME,
-    schema: schemas.users.getMe,
-    handler: controllers.users.getMe
   },
   {
     method: methods.GET,
@@ -69,6 +77,18 @@ const routes = [
     url: urls.POSTS,
     schema: schemas.posts.getMany,
     handler: controllers.posts.getMany
+  },
+  {
+    method: methods.GET,
+    url: urls.POST,
+    schema: schemas.posts.getOne,
+    handler: controllers.posts.getOne
+  },
+  {
+    method: methods.PATCH,
+    url: urls.POST,
+    schema: schemas.posts.update,
+    handler: controllers.posts.update
   }
 ]
 

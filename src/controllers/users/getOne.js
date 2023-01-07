@@ -1,5 +1,5 @@
 const { User } = require('../../db/models')
-const { statusCodes, userRoles, payloadFields } = require('../../const')
+const { statusCodes } = require('../../const')
 
 const controller = async (req, res) => {
   const { id } = req.params

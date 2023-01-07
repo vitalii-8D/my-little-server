@@ -4,12 +4,16 @@ const routes = {
   // AUTH
   LOGIN: '/auth/login',
 
-  // USER
-  USERS: '/user',
-  USER: '/user/:id',
+  // ME
   ME: '/me',
+  ME_POSTS: '/me/posts',
+
+  // USER
+  USERS: '/users',
+  USER: '/user/:id',
+
   // POST
-  POSTS: '/post',
+  POSTS: '/posts',
   POST: '/post/:id'
 }
 

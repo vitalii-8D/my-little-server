@@ -2,8 +2,8 @@ const { defaultErrors, post, helpers, tag, comment, user } = require('../common'
 const { statusCodes } = require('../../const')
 
 const schema = {
-  description: 'Get all Posts',
-  tags: ['Post'],
+  description: 'Get my Posts',
+  tags: ['Me'],
   query: {
     type: 'object',
     properties: {
@@ -20,9 +20,9 @@ const schema = {
           tags: helpers.arrayOf(tag.response),
           comments: helpers.arrayOf({
             ...comment.response,
-            user: user.response
+            user: user.responseSchema
           }),
-          user: user.response
+          user: user.responseSchema
         }),
         count: { type: 'number', example: 5 }
       }

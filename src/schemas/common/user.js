@@ -8,6 +8,13 @@ const response = {
   }
 }
 
+const responseSchema = {
+  type: 'object',
+  properties: response,
+  additionalProperties: false
+}
+
 module.exports = {
-  response
+  response,
+  responseSchema
 }

@@ -1,4 +1,4 @@
-const { User } = require('../../db/models')
+const { Post } = require('../../db/models')
 const { statusCodes, userRoles, payloadFields } = require('../../const')
 
 const controller = async (req, res) => {
@@ -8,14 +8,13 @@ const controller = async (req, res) => {
   const uId = req.user[payloadFields.UID]
 
   try {
-    let user = await User.findByPk(req.params.id)
+    let post = await Post.findByPk(req.params.id)
+    if (!post) return res.status(statusCodes.NOT_FOUND).send({ error: 'Not found' })
 
-    if (!user) return res.status(statusCodes.NOT_FOUND).send({ error: 'Not found' })
-
-    if (uRole !== userRoles.ADMIN && user.id !== uId)
+    if (uRole !== userRoles.ADMIN && post.userId !== uId)
       return res.code(statusCodes.FORBIDDEN).send({ error: 'Access denied' })
 
-    await user.update(req.body)
+    await post.update(req.body)
 
     res.status(statusCodes.OK).send({ status: 'User updated!' })
   } catch (err) {
