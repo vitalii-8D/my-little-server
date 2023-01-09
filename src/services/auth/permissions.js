@@ -19,8 +19,8 @@ const permission = {
   },
   // POSTS
   [urls.POSTS]: {
-    [methods.POST]: roles.ALL,
-    [methods.GET]: roles.ALL
+    [methods.POST]: roles.ALL
+    // [methods.GET]: roles.ALL
   }
 }
 

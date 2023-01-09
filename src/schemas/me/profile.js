@@ -6,13 +6,7 @@ const schema = {
   tags: ['Me'],
   response: {
     ...defaultErrors,
-    [statusCodes.OK]: {
-      type: 'object',
-      properties: {
-        ...user.response
-      },
-      required: ['id', 'firstName', 'lastName', 'email', 'role']
-    }
+    [statusCodes.OK]: user.responseSchema
   }
 }
 

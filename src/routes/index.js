@@ -97,6 +97,13 @@ const routes = [
     url: urls.POST_COMMENTS,
     schema: schemas.comments.ofPost,
     handler: controllers.comments.ofPost
+  },
+  // TAGS
+  {
+    method: methods.GET,
+    url: urls.TAGS,
+    schema: schemas.tags.getMany,
+    handler: controllers.tags.getMany
   }
 ]
 

@@ -16,7 +16,10 @@ const routes = {
   POSTS: '/posts',
   POST: '/post/:id',
   // COMMENTS
-  POST_COMMENTS: '/post/:id/comments'
+  POST_COMMENTS: '/post/:id/comments',
+
+  // TAGS
+  TAGS: '/tags'
 }
 
 module.exports = routes

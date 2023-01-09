@@ -4,6 +4,7 @@ const users = require('./users')
 const posts = require('./posts')
 const me = require('./me')
 const comments = require('./comments')
+const tags = require('./tags')
 
 module.exports = {
   healthCheck,
@@ -11,5 +12,6 @@ module.exports = {
   users,
   posts,
   me,
-  comments
+  comments,
+  tags
 }
